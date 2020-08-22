@@ -6,7 +6,12 @@ class Form extends Component {
     super(props);
     this.state = {
       isFormValid: false,
-      fields: {},
+      fields: {
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+      },
     };
   }
   handleValidation() {
@@ -26,7 +31,6 @@ class Form extends Component {
         formIsValid = false;
       }
     }
-    console.log(formIsValid);
     //Email
     if (!fields["email"]) {
       formIsValid = false;
@@ -67,7 +71,6 @@ class Form extends Component {
     let fields = this.state.fields;
     fields[field] = e.target.value;
     this.setState({ fields });
-    console.log(this.state);
   }
   contactSubmit(e) {
     e.preventDefault();
@@ -86,6 +89,9 @@ class Form extends Component {
           <h3>Name:</h3>
           <input
             ref="name"
+            name="name"
+            className="name"
+            id="name"
             type="text"
             size="30"
             placeholder="Name"
@@ -96,6 +102,8 @@ class Form extends Component {
           <h3>Email:</h3>
           <input
             refs="email"
+            name="email"
+            className="email"
             type="text"
             size="30"
             placeholder="Email"
@@ -105,6 +113,8 @@ class Form extends Component {
           <h3>Phone:</h3>
           <input
             refs="phone"
+            name="phone"
+            className="phone"
             type="text"
             size="10"
             placeholder="Phone"
@@ -114,6 +124,8 @@ class Form extends Component {
           <h3>Blog URL:</h3>
           <input
             refs="address"
+            name="address"
+            className="address"
             type="text"
             size="30"
             placeholder="Address"
